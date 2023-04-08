@@ -2,7 +2,7 @@
 
 This is a very basic flutter app for the purpose of demonstrating how to get started with flutter. Follow the instructions below to install flutter, open the app's code using Visual Studio Code or Android Studio, and run the app.
 
-![image](https://user-images.githubusercontent.com/98095976/230730012-b103c3d9-42e5-4d98-9e60-5b74dec3744c.png)
+![Frame 1](https://user-images.githubusercontent.com/98095976/230730040-a5ea8793-845f-4c93-9b1e-b62b2f8492d7.png)
 
 
 ## Prerequisites

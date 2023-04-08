@@ -1,23 +1,36 @@
+// We need to use these special tools to make our app.
 import 'package:flutter/material.dart';
 import 'package:flutter_bitcamp/destination_page.dart';
 import 'package:flutter_bounceable/flutter_bounceable.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+// This is a special part of our app that shows a list of places to visit.
 class ExploreDestinations extends StatelessWidget {
+  // This is a magic word that helps our app work well.
   const ExploreDestinations({Key? key}) : super(key: key);
 
+  // This tells our app how to draw and look nice.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        // This helps us avoid problems when the keyboard pops up.
         resizeToAvoidBottomInset: false,
+        // This is the top part of our app that has a title and menu button.
         appBar: AppBar(
+          // This is how tall the top part is.
           toolbarHeight: 70,
+          // This makes the top part look flat.
           elevation: 0,
+          // This makes the top part see-through.
           backgroundColor: Colors.transparent,
+          // This is the name of our app.
           title: const Text('Hello World'),
+          // This is the menu button.
           leading: const Padding(
+            // This is how much space is around the button.
             padding: EdgeInsets.only(left: 40, top: 40),
+            // This is the menu icon.
             child: Icon(
               Icons.menu,
               color: Colors.black,
@@ -25,8 +38,10 @@ class ExploreDestinations extends StatelessWidget {
             ),
           ),
         ),
+        // This is the main part of our app where we show the list of places.
         body: SafeArea(
           child: Padding(
+            // This is how much space is around the list of places.
             padding: const EdgeInsets.only(
               left: 40,
               top: 20,
@@ -40,6 +55,7 @@ class ExploreDestinations extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // This is the big word "Explore" at the top.
                       Text(
                         "Explore",
                         style: GoogleFonts.poppins(
@@ -49,33 +65,39 @@ class ExploreDestinations extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // This makes a little space under the word "Explore".
                       const SizedBox(
                         height: 10,
                       ),
-                      //add a search box
+                      // This is where we can type to search for places.
                       Container(
                         height: 70,
                         width: 400,
                         decoration: BoxDecoration(
+                          // This is the color of the search box.
                           color: const Color(0xffE1E1E1),
+                          // This is the shape of the search box.
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: Center(
                           child: Padding(
+                            // This is how much space is inside the search box.
                             padding: const EdgeInsets.only(left: 20),
                             child: TextField(
-                              //make keyboard go above screen
-
+                              // This makes the keyboard go above the screen.
                               textInputAction: TextInputAction.search,
                               decoration: InputDecoration(
-                                //add search icon to start
+                                // This is the search icon at the start of the box.
                                 prefixIcon: const Icon(
                                   Icons.search,
                                   color: Colors.black,
                                   size: 40,
                                 ),
+                                // This makes the box have no border.
                                 border: InputBorder.none,
+                                // This is the text inside the box.
                                 hintText: "  Discover Places",
+                                // This is how the text inside the box looks.
                                 hintStyle: GoogleFonts.poppins(
                                   fontSize: 20,
                                   color: Colors.black.withOpacity(0.7),
@@ -88,14 +110,17 @@ class ExploreDestinations extends StatelessWidget {
                     ],
                   ),
                 ),
+                // This makes a little space under the search box.
                 const SizedBox(
                   height: 10,
                 ),
+                // This is the area where the list of places will be shown.
                 Expanded(
                   flex: 6,
                   child: ListView(
                     shrinkWrap: true,
                     children: const [
+                      // These are the cards with information about each place.
                       DestinationCard(
                         city: "Venice",
                         country: "Italy",
@@ -105,6 +130,7 @@ class ExploreDestinations extends StatelessWidget {
                         image:
                             "https://www.italiadelight.it/wp-content/uploads/2020/06/venezia-italian.jpg.webp",
                       ),
+                      // This makes a little space between the cards.
                       SizedBox(
                         height: 30,
                       ),
@@ -117,6 +143,7 @@ class ExploreDestinations extends StatelessWidget {
                         image:
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg",
                       ),
+                      // This makes a little space between the cards.
                       SizedBox(
                         height: 30,
                       ),
@@ -132,7 +159,9 @@ class ExploreDestinations extends StatelessWidget {
   }
 }
 
+// This is the card that shows information about each place.
 class DestinationCard extends StatelessWidget {
+// This is the magic word that helps the card work well.
   const DestinationCard({
     super.key,
     required this.distance,
@@ -143,6 +172,7 @@ class DestinationCard extends StatelessWidget {
     required this.openingHours,
   });
 
+// These are the important details about each place.
   final String distance;
   final String image;
   final int cost;
@@ -150,10 +180,12 @@ class DestinationCard extends StatelessWidget {
   final String country;
   final String openingHours;
 
+// This tells the card how to draw and look nice.
   @override
   Widget build(BuildContext context) {
     return Bounceable(
       onTap: () {
+// This makes the card go to a new page with more details.
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -169,12 +201,15 @@ class DestinationCard extends StatelessWidget {
         );
       },
       child: Container(
+        // This is the size of the card.
         height: 300,
         width: double.infinity,
         decoration: BoxDecoration(
+          // This makes the card have round corners.
           borderRadius: const BorderRadius.all(
             Radius.circular(20),
           ),
+          // This shows the picture of the place on the card.
           image: DecorationImage(
             image: NetworkImage(
               image,
@@ -184,6 +219,7 @@ class DestinationCard extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
+            // This makes the card have round corners.
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ),

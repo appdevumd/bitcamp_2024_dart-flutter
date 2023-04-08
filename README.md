@@ -1,6 +1,6 @@
 # Flutter Bitcamp Demo
 
-This is a very basic flutter app for the purpose of demonstrating how to get started with flutter. Follow the instructions below to install flutter and run the app.
+This is a very basic flutter app for the purpose of demonstrating how to get started with flutter. Follow the instructions below to install flutter, open the app's code using Visual Studio Code or Android Studio, and run the app.
 
 ## Prerequisites
 
@@ -29,34 +29,55 @@ Follow the instructions below to install Flutter SDK:
 4. Extract the downloaded file in a suitable location for your development needs.
 5. Add the `flutter/bin` directory to your system's PATH environment variable.
 
+On Windows, the PATH variable can be set by following these steps:
+
+1. Open the Start menu and search for "Environment Variables".
+2. Click on "Edit the system environment variables".
+3. Click on the "Environment Variables" button.
+4. In the "System variables" section, scroll down to the "Path" variable and click on "Edit".
+5. Click on "New" and add the path to the `flutter/bin` directory.
+6. Click on "OK" to save the changes.
+
+On macOS or Linux, add the following line to your `.bashrc` or `.zshrc` file: ```export PATH="$PATH:/path/to/flutter/bin"```
+
+
 #### Common Issues
 
 - If you are using macOS and receive a message saying that the downloaded file is damaged and cannot be opened, try running the following command in a Terminal window: `xattr -r -d com.apple.quarantine ~/Downloads/flutter_macos_<version>.zip`
+
+## Opening the App's Code
+
+To open the app's code using Visual Studio Code or Android Studio, follow the instructions below:
+
+### Using Visual Studio Code
+
+1. Open Visual Studio Code.
+2. Click on "Open folder" and select the folder containing the app's code.
+3. Install the required extensions by clicking on the "Extensions" icon in the sidebar and searching for "Flutter" and "Dart".
+4. Once the required extensions are installed, you can run the app by pressing `F5`.
+
+### Using Android Studio
+
+1. Open Android Studio.
+2. Click on "File" > "Open" and select the folder containing the app's code.
+3. Install the required plugins by going to "File" > "Settings" > "Plugins" and searching for "Flutter" and "Dart".
+4. Once the required plugins are installed, you can run the app by clicking on the "Run" button in the toolbar.
 
 ## Running the App
 
 Follow the instructions below to run the app:
 
 1. Clone this repository using the command `git clone https://github.com/madamoniem/flutter_bitcamp_demo.git`.
-2. Navigate to the project directory using the command `cd flutter_bitcamp_demo`.
-3. Run `flutter pub get` to install the app's dependencies.
-4. Connect your device or start an emulator.
-5. Run the app using the command `flutter run`.
+2. Navigate to the project directory using the command cd flutter_bitcamp_demo.
+3. Run the command flutter pub get to download the required dependencies.
 
-### Setting Up an Emulator
+Connect a physical device or start an emulator.
 
-If you don't have a physical device to test the app on, you can use an emulator instead. Follow the instructions below to set up an emulator:
+For instructions on setting up an Android emulator, see the official documentation.
+For instructions on setting up an iOS simulator, see the official documentation.
+Run the command flutter run to launch the app.
 
-1. Open Android Studio.
-2. Click on the "AVD Manager" icon in the toolbar, or go to "Tools" > "AVD Manager" in the menu bar.
-3. Click on the "Create Virtual Device" button.
-4. Choose a device definition and click on "Next".
-5. Choose a system image and click on "Next".
-6. Configure the device settings and click on "Finish".
-7. Click on the "Play" button to start the emulator.
-
-For more detailed instructions on running the app and setting up an emulator, see the [official documentation](https://flutter.dev/docs/get-started/test-drive).
-
-### Troubleshooting
-
-If you encounter any issues while installing or running the app, refer to the [official documentation](https://flutter.dev/docs/get-started) for help. You can also join the [Flutter community](https://flutter.dev/community) to get help from other developers.
+Common Issues
+If you encounter an error that says "No devices found", make sure that your device or emulator is properly connected and recognized by your system.
+If you encounter an error that says "Flutter plugin not installed", make sure that the Flutter and Dart plugins are properly installed in your IDE.
+That's it! You should now have the app running on your device or emulator. Feel free to experiment with the code and make changes to the app. Happy coding!

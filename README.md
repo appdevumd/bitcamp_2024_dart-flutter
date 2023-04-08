@@ -79,5 +79,7 @@ Run the command flutter run to launch the app.
 
 Common Issues
 If you encounter an error that says "No devices found", make sure that your device or emulator is properly connected and recognized by your system.
+
 If you encounter an error that says "Flutter plugin not installed", make sure that the Flutter and Dart plugins are properly installed in your IDE.
+
 That's it! You should now have the app running on your device or emulator. Feel free to experiment with the code and make changes to the app. Happy coding!

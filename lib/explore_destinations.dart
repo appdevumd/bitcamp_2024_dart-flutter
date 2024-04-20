@@ -1,36 +1,57 @@
-// We need to use these special tools to make our app.
+// Import the Flutter framework's material design library, which provides 
+// pre-built widgets and tools for creating visually appealing and responsive 
+// user interfaces that follow the Material Design guidelines.
 import 'package:flutter/material.dart';
+
+// Import a custom widget called DestinationPage from the 
+// 'destination_page.dart' file.
 import 'package:flutter_bitcamp/destination_page.dart';
+
+// Import the flutter_bounceable package, which provides a widget called
+// Bounceable that adds a bouncy animation effect to its child widget when 
+// tapped. This enhances the user experience and interactivity.
 import 'package:flutter_bounceable/flutter_bounceable.dart';
+
+// Import the Google Fonts package, which allows easy integration of custom 
+// fonts from the Google Fonts library into the Flutter app, enabling 
+// typography customization and improving the app's visual appeal.
 import 'package:google_fonts/google_fonts.dart';
 
-// This is a special part of our app that shows a list of places to visit.
+// Define a stateless widget called ExploreDestinations, which represents 
+// the screen that displays a list of travel destinations for the user to 
+// explore. Stateless widgets are immutable and their properties cannot 
+// change once they are created.
 class ExploreDestinations extends StatelessWidget {
-  // This is a magic word that helps our app work well.
+  // Define a constructor for ExploreDestinations that accepts an optional 
+  // key parameter. The key is used by Flutter's framework to uniquely 
+  // identify widgets and efficiently update the widget tree when necessary.
   const ExploreDestinations({Key? key}) : super(key: key);
 
-  // This tells our app how to draw and look nice.
+  // Override the build() method, which is called by Flutter's framework to
+  // build the widget tree for this widget. It takes the current BuildContext
+  // as a parameter, which provides information about the widget's location
+  // in the tree and allows interaction with other widgets and the framework.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        // This helps us avoid problems when the keyboard pops up.
+        // Set resizeToAvoidBottomInset to false to prevent the screen from
+        // resizing when the keyboard appears, which can cause layout issues.
         resizeToAvoidBottomInset: false,
-        // This is the top part of our app that has a title and menu button.
+        // Define the app bar using the AppBar widget, which is a Material 
+        // Design app bar that appears at the top of the screen.
         appBar: AppBar(
-          // This is how tall the top part is.
+          // Set the height of the app bar using the toolbarHeight property.
           toolbarHeight: 70,
-          // This makes the top part look flat.
+          // Set the elevation of the app bar to 0, creating a flat appearance.
           elevation: 0,
-          // This makes the top part see-through.
+          // Set the background color of the app bar to transparent.
           backgroundColor: Colors.transparent,
-          // This is the name of our app.
-          title: const Text('Hello World'),
-          // This is the menu button.
+
+          // Add a menu icon to the leading side of the app bar using the 
+          // Icon widget and the Padding widget to add spacing.
           leading: const Padding(
-            // This is how much space is around the button.
             padding: EdgeInsets.only(left: 40, top: 40),
-            // This is the menu icon.
             child: Icon(
               Icons.menu,
               color: Colors.black,
@@ -38,10 +59,13 @@ class ExploreDestinations extends StatelessWidget {
             ),
           ),
         ),
-        // This is the main part of our app where we show the list of places.
+
+        // Define the main content of the screen using the body property 
+        // and the SafeArea widget, which ensures that the content is not
+        // obscured by device notches or system UI elements.
         body: SafeArea(
           child: Padding(
-            // This is how much space is around the list of places.
+            // Add padding around the content using the Padding widget.
             padding: const EdgeInsets.only(
               left: 40,
               top: 20,
@@ -55,7 +79,8 @@ class ExploreDestinations extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // This is the big word "Explore" at the top.
+                      // Display the "Explore" text using the Text widget and 
+                      // style it using the GoogleFonts package and TextStyle.
                       Text(
                         "Explore",
                         style: GoogleFonts.poppins(
@@ -65,42 +90,47 @@ class ExploreDestinations extends StatelessWidget {
                           ),
                         ),
                       ),
-                      // This makes a little space under the word "Explore".
+                      // Add a small vertical space using the SizedBox widget.
                       const SizedBox(
                         height: 10,
                       ),
-                      // This is where we can type to search for places.
+                      // Create a search bar using the Container widget and 
+                      // style it with a specific height, width, color, and 
+                      // border radius.
                       Container(
                         height: 70,
-                        width: 400,
+                        width: double.infinity,
                         decoration: BoxDecoration(
-                          // This is the color of the search box.
                           color: const Color(0xffE1E1E1),
-                          // This is the shape of the search box.
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: Center(
                           child: Padding(
-                            // This is how much space is inside the search box.
                             padding: const EdgeInsets.only(left: 20),
-                            child: TextField(
-                              // This makes the keyboard go above the screen.
-                              textInputAction: TextInputAction.search,
-                              decoration: InputDecoration(
-                                // This is the search icon at the start of the box.
-                                prefixIcon: const Icon(
-                                  Icons.search,
-                                  color: Colors.black,
-                                  size: 40,
-                                ),
-                                // This makes the box have no border.
-                                border: InputBorder.none,
-                                // This is the text inside the box.
-                                hintText: "  Discover Places",
-                                // This is how the text inside the box looks.
-                                hintStyle: GoogleFonts.poppins(
-                                  fontSize: 20,
-                                  color: Colors.black.withOpacity(0.7),
+                            child: Container(
+                              child: TextField(
+                                // Set the keyboard action to search when the 
+                                // user taps the search button on the keyboard.
+                                textInputAction: TextInputAction.search,
+                                decoration: InputDecoration(
+                                  // Add a search icon to the start of the 
+                                  // search bar using the prefixIcon property.
+                                  prefixIcon: const Icon(
+                                    Icons.search,
+                                    color: Colors.black,
+                                    size: 40,
+                                  ),
+                                  // Remove the border around the search bar 
+                                  // using InputBorder.none.
+                                  border: InputBorder.none,
+                                  // Set the hint text for the search bar.
+                                  hintText: "  Discover Places",
+                                  // Style the hint text using GoogleFonts and 
+                                  // TextStyle.
+                                  hintStyle: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    color: Colors.black.withOpacity(0.7),
+                                  ),
                                 ),
                               ),
                             ),
@@ -110,17 +140,19 @@ class ExploreDestinations extends StatelessWidget {
                     ],
                   ),
                 ),
-                // This makes a little space under the search box.
-                const SizedBox(
-                  height: 10,
-                ),
-                // This is the area where the list of places will be shown.
+    
+                // Create a scrollable list of destination cards using the 
+                // Expanded widget and the ListView widget.
                 Expanded(
                   flex: 6,
                   child: ListView(
+                    padding:  EdgeInsets.zero,
+                    // Set shrinkWrap to true to allow the ListView to scroll 
+                    // within its parent's bounds.
                     shrinkWrap: true,
                     children: const [
-                      // These are the cards with information about each place.
+                      // Add destination cards to the list using the 
+                      // DestinationCard widget and pass the required data.
                       DestinationCard(
                         city: "Venice",
                         country: "Italy",
@@ -128,9 +160,10 @@ class ExploreDestinations extends StatelessWidget {
                         cost: 20,
                         openingHours: "09:00 AM",
                         image:
-                            "https://www.italiadelight.it/wp-content/uploads/2020/06/venezia-italian.jpg.webp",
+                            "https://lp-cms-production.imgix.net/2021-06/GettyRF_543346423.jpg",
                       ),
-                      // This makes a little space between the cards.
+                      // Add a small vertical space between the cards using 
+                      // the SizedBox widget.
                       SizedBox(
                         height: 30,
                       ),
@@ -143,7 +176,8 @@ class ExploreDestinations extends StatelessWidget {
                         image:
                             "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg",
                       ),
-                      // This makes a little space between the cards.
+                      // Add a small vertical space between the cards using 
+                      // the SizedBox widget.
                       SizedBox(
                         height: 30,
                       ),
@@ -159,9 +193,13 @@ class ExploreDestinations extends StatelessWidget {
   }
 }
 
-// This is the card that shows information about each place.
+// Define a stateless widget called DestinationCard, which represents a card 
+// that displays information about a specific destination. Stateless widgets 
+// are immutable and their properties cannot change once they are created.
 class DestinationCard extends StatelessWidget {
-// This is the magic word that helps the card work well.
+  // Define a constructor for DestinationCard that accepts the required data 
+  // for each destination card, such as distance, image, cost, city, country, 
+  // and opening hours.
   const DestinationCard({
     super.key,
     required this.distance,
@@ -172,7 +210,8 @@ class DestinationCard extends StatelessWidget {
     required this.openingHours,
   });
 
-// These are the important details about each place.
+  // Declare the final variables to store the data passed through the 
+  // constructor. These variables can be accessed within the widget.
   final String distance;
   final String image;
   final int cost;
@@ -180,12 +219,13 @@ class DestinationCard extends StatelessWidget {
   final String country;
   final String openingHours;
 
-// This tells the card how to draw and look nice.
+  // Override the build() method to define the UI of the DestinationCard widget.
   @override
   Widget build(BuildContext context) {
     return Bounceable(
+      // Add an onTap gesture to the Bounceable widget, which triggers a 
+      // navigation event to the DestinationPage when the card is tapped.
       onTap: () {
-// This makes the card go to a new page with more details.
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -201,15 +241,17 @@ class DestinationCard extends StatelessWidget {
         );
       },
       child: Container(
-        // This is the size of the card.
+        // Set the size of the destination card using the height and width 
+        // properties.
         height: 300,
         width: double.infinity,
         decoration: BoxDecoration(
-          // This makes the card have round corners.
+          // Add rounded corners to the card using the borderRadius property.
           borderRadius: const BorderRadius.all(
             Radius.circular(20),
           ),
-          // This shows the picture of the place on the card.
+          // Display the destination image as the background of the card 
+          // using the DecorationImage widget.
           image: DecorationImage(
             image: NetworkImage(
               image,
@@ -219,10 +261,12 @@ class DestinationCard extends StatelessWidget {
         ),
         child: Container(
           decoration: BoxDecoration(
-            // This makes the card have round corners.
+            // Add rounded corners to the card using the borderRadius property.
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ),
+            // Add a gradient overlay to the card using the LinearGradient 
+            // widget, which creates a smooth transition between two colors.
             gradient: LinearGradient(
               begin: Alignment.bottomRight,
               colors: [
@@ -246,6 +290,8 @@ class DestinationCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // Display the city name using the Text widget and style 
+                      // it using GoogleFonts and TextStyle.
                       Text(
                         city,
                         style: GoogleFonts.poppins(
@@ -257,6 +303,8 @@ class DestinationCard extends StatelessWidget {
                           ),
                         ),
                       ),
+                      // Display the distance using the Text widget and style 
+                      // it using GoogleFonts and TextStyle.
                       Text(
                         distance,
                         style: GoogleFonts.poppins(
